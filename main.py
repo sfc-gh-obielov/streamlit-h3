@@ -6,7 +6,7 @@ from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
 
 session = Session.builder.configs(st.secrets["geodemo"]).create()
-st.set_page_config(page_title="H3 in Streamlit", layout="wide")
+# st.set_page_config(page_title="H3 in Streamlit", layout="wide")
 st.title("Cell towers density in the US")
 
 col1, col2 = st.columns(2)
