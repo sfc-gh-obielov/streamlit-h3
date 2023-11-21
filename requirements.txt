@@ -1,0 +1,5 @@
+snowflake-snowpark-python==latest
+pandas==1.4.2
+branca==0.5.0
+streamlit==1.22.0
+pydeck==0.71
