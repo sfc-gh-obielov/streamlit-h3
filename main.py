@@ -37,8 +37,8 @@ color_map = cm.LinearColormap(colors, vmin=quantiles.min(), vmax=quantiles.max()
 df['COLOR'] = df['COUNT'].apply(color_map.rgb_bytes_tuple)
 st.pydeck_chart(pdk.Deck(map_style=None,
     initial_view_state=pdk.ViewState(
-        latitude=39.116609759980776, 
-        longitude=-100.18329620361328, zoom=3),
+        latitude=38.51405689475766,
+        longitude=-94.50284957885742, zoom=3),
     layers=[pdk.Layer("H3HexagonLayer", df, get_hexagon="H3",
                       get_fill_color="COLOR", 
                       get_line_color="COLOR",
