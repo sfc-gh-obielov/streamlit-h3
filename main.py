@@ -6,6 +6,15 @@ from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
 import json
 
+from PIL import Image
+
+image = Image.open('./favicon.ico')
+         
+st.set_page_config(
+    page_title="H3: Simplifying the World's Map",
+    page_icon=image,
+)
+
 session = Session.builder.configs(st.secrets["geodemo"]).create()
 # st.set_page_config(page_title="H3 in Streamlit", layout="wide")
 
