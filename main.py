@@ -32,6 +32,7 @@ st.markdown("To give you a practical example, below is a map showing the distrib
             "<a href='https://app.snowflake.com/marketplace/listing/GZSVZ8ON6J/dataconsulting-pl-opencellid-open-database-of-cell-towers'>OpenCellID</a> dataset, "
             "from Snowflake Marketplace, which contains millions of data points. By applying the H3 grid system, we can organize these numerous"
             " points into hexagons of a chosen <a href='https://h3geo.org/docs/core-library/restable/'>resolution</a>. "
+            "Higher resolutions lead to smaller cells, offering a more detailed view. "
             "This approach not only simplifies the visualization but also makes it easier to "
             "understand and analyze the density and distribution of cell towers across the country.", unsafe_allow_html=True)
 
@@ -80,8 +81,7 @@ st.markdown("<h3>H3_COVERAGE and H3_POLYGON_TO_CELLS</h3>"
             "The <a href='https://docs.snowflake.com/en/sql-reference/functions/h3_coverage'>H3_COVERAGE</a></h3> function provides full coverage of a polygon with H3 cells, meaning that "
             "it returns all the H3 cells that intersect with the given polygon. "
             "This is particularly useful when you need a comprehensive representation of a spatial area. "
-            "Higher resolutions lead to smaller cells, offering a more detailed coverage. Additionaly, "
-            "just like Snowflake's <a href='https://docs.snowflake.com/en/sql-reference/data-types-geospatial#label-data-types-geography'>GEOGRAPHY</a>"
+            " Additionaly, just like Snowflake's <a href='https://docs.snowflake.com/en/sql-reference/data-types-geospatial#label-data-types-geography'>GEOGRAPHY</a>"
             " data type, H3_COVERAGE utilizes spherical geometry for its calculations. "
             "It means it takes into account the curvature of the Earth when determining which H3 cells intersect with a given polygon."
             " This is especialy important when you work with spatial objects on the global scale, e.g tessellate shapes of countries.", unsafe_allow_html=True)
