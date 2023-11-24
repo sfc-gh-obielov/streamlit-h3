@@ -91,7 +91,7 @@ st.markdown("<h3>H3_COVERAGE and H3_POLYGON_TO_CELLS</h3>"
             "just like Snowflake's <a href='https://docs.snowflake.com/en/sql-reference/data-types-geospatial#label-data-types-geography'>GEOGRAPHY</a>"
             " data type, H3_COVERAGE utilizes spherical geometry for its calculations. "
             "It means it takes into account the curvature of the Earth when determining which H3 cells intersect with a given polygon."
-            " This is especialy important when you work with spatial objects on the global scale, e.g tesselate shapes of countries.", unsafe_allow_html=True)
+            " This is especialy important when you work with spatial objects on the global scale, e.g tessellate shapes of countries.", unsafe_allow_html=True)
 st.markdown("<br>In contrast, the <a href='https://docs.snowflake.com/en/sql-reference/functions/h3_polygon_to_cells'>H3_POLYGON_TO_CELLS</a>"
             " function is centroid-based. It returns the H3 cells whose centroids are within the specified polygon. "
             "And unlike H3_COVERAGE it operates on planar geometry."
