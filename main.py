@@ -106,7 +106,7 @@ with col2:
     original_shape = st.selectbox("Show original shape", ("Yes", "No"),  index=0)
 
 with col3:
-    h3_res = st.slider( "Resolution", min_value=min_v, max_value=max_v, value=v)
+    h3_res = st.slider( "H3 resolution", min_value=min_v, max_value=max_v, value=v)
 
 df_shape = session.sql(f"select geog from streamlit.viz.polygon_spherical where scale_of_polygon = '{poly_scale}'").to_pandas()
 
