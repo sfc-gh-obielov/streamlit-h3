@@ -14,10 +14,17 @@ st.header("H3: Simplifying the World's Map", divider="rainbow")
 st.markdown("<b>H3 Discrete Global Grid</b> is a way to divide the world into a grid of hexagonal cells, "
             "each with a unique identifier. It is a hierarchical grid, meaning that cells can be "
             "aggregated into larger cells, and vice versa. This makes it very efficient for processing geospatial data.", unsafe_allow_html=True)
+
 st.markdown("Many companies use H3 grid today. Some of them use it for analytical and machine learning use cases"
             " when they do aggregations using cells of the same size to calculate statistics and visualize them or train "
             "prediction models. Others speed up queries by replacing geospatial lookups and joins "
             "with similar operations using IDs of H3 cells.")
+
+st.markdown("However, even if you don't use spatial joins or don't have machine learning use cases, you likely "
+            "store some geographic locations, typically as latitude and longitude pairs. The beauty of the H3 grid"
+            " is in its simplicity and effectiveness in extracting value from such data. It offers an accessible way to start "
+            "visualizing your geographic data using its grid system, making it a versatile tool for many applications.")
+
 st.markdown("To give you a practical example, below is a map showing the distribution of cell towers across the "
             "United States. This map is created using the "
             "<a href='https://app.snowflake.com/marketplace/listing/GZSVZ8ON6J/dataconsulting-pl-opencellid-open-database-of-cell-towers'>OpenCellID</a> dataset, "
@@ -25,6 +32,7 @@ st.markdown("To give you a practical example, below is a map showing the distrib
             " points into hexagons of a chosen <a href='https://h3geo.org/docs/core-library/restable/'>resolution</a>. "
             "This approach not only simplifies the visualization but also makes it easier to "
             "understand and analyze the density and distribution of cell towers across the country.", unsafe_allow_html=True)
+
 st.markdown("Try adjusting the resolution in the widget to see how changing the granularity of the data aggregation "
             "can lead to different observations and conclusions.", unsafe_allow_html=True)
 
