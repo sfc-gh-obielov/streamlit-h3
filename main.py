@@ -119,12 +119,14 @@ else:
     visible_layers_coverage = [layer_coverage]
     visible_layers_polyfill = [layer_polyfill]
 
+st.markdown('<b>H3_COVERAGE</b>', unsafe_allow_html=True)
 st.pydeck_chart(pdk.Deck(map_style=None,
     initial_view_state=pdk.ViewState(
         latitude=lat,
         longitude=lon, zoom=z),
     layers=visible_layers_coverage))
 
+st.markdown('<b>H3_POLYGON_TO_CELLS</b>', unsafe_allow_html=True)
 st.pydeck_chart(pdk.Deck(map_style=None,
     initial_view_state=pdk.ViewState(
         latitude=lat,
