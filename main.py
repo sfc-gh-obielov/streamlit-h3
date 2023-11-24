@@ -77,7 +77,7 @@ st.markdown("<h3>H3_COVERAGE and H3_POLYGON_TO_CELLS</h3>"
             " This is especialy important when you work with spatial objects on the global scale, e.g tesselate shapes of countries.", unsafe_allow_html=True)
 st.markdown("<br>In contrast, the <a href='https://docs.snowflake.com/en/sql-reference/functions/h3_polygon_to_cells'>H3_POLYGON_TO_CELLS</a>"
             " function is centroid-based. It returns the H3 cells whose centroids are within the specified polygon. "
-            "And unilike H3_POLYGON_TO_CELLS it operates on planar geometry."
+            "And unlike H3_COVERAGE it operates on planar geometry."
             " It assumes a flat surface for its calculations, which simplifies the processing but can introduce distortions, especially over large areas.", unsafe_allow_html=True)
 st.markdown("Explore the differences between these functions at both global and local scales using the provided widget. "
             "Compare the results against the initial <span style='color:rgba(217, 102, 255, 1);'>Light Purple</span> polygon to understand their behavior.", unsafe_allow_html=True)
