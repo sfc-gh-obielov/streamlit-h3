@@ -1,5 +1,5 @@
 snowflake-snowpark-python
 pandas
 branca
-streamlit
+streamlit==1.28.0
 pydeck
