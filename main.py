@@ -8,7 +8,7 @@ import json
 
 from PIL import Image
 
-image = Image.open('./favicon.ico')
+image = Image.open('./favicon.png')
          
 st.set_page_config(
     page_title="H3: Simplifying the World's Map",
