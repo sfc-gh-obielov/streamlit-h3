@@ -65,7 +65,7 @@ st.pydeck_chart(pdk.Deck(map_style=None,
 
 
 st.markdown("Let's dive deeper into specific functions of the H3 library that are particularly"
-            " useful for spatial data processing: H3_COVERAGE and H3_POLYGON_TO_CELLS.", unsafe_allow_html=True)
+            " useful for spatial data processing.", unsafe_allow_html=True)
 st.markdown("<h3>H3_COVERAGE and H3_POLYGON_TO_CELLS</h3>"
             "The <a href='https://docs.snowflake.com/en/sql-reference/functions/h3_coverage'>H3_COVERAGE</a></h3> function provides full coverage of a polygon with H3 cells, meaning that "
             "it returns all the H3 cells that intersect with the given polygon. "
