@@ -5,20 +5,13 @@ import branca.colormap as cm
 from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
 import json
-
 from PIL import Image
-
 image = Image.open('./favicon.png')
-         
-st.set_page_config(
-    page_title="H3: Simplifying the World's Map",
-    page_icon=image,
-)
+st.set_page_config(page_title="H3: Simplifying the World's Map", page_icon=image)
+st.header("H3: Simplifying the World's Map", divider="rainbow")
 
 session = Session.builder.configs(st.secrets["geodemo"]).create()
 # st.set_page_config(page_title="H3 in Streamlit", layout="wide")
-
-st.header("H3: Simplifying the World's Map", divider="rainbow")
 
 st.markdown("<b>H3 Discrete Global Grid</b> is a way to divide the world into a grid of hexagonal cells, "
             "each with a unique identifier. It is a hierarchical grid, meaning that cells can be "
