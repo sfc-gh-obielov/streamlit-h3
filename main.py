@@ -69,7 +69,7 @@ st.markdown("Let's dive deeper into specific functions of the H3 library that ar
 st.markdown("<h3>H3_COVERAGE and H3_POLYGON_TO_CELLS</h3>"
             "The <a href='https://docs.snowflake.com/en/sql-reference/functions/h3_coverage'>H3_COVERAGE</a></h3> function provides full coverage of a polygon with H3 cells, meaning that "
             "it returns all the H3 cells that intersect with the given polygon. "
-            "This is particularly useful when you need a comprehensive representation of a spatial area."
+            "This is particularly useful when you need a comprehensive representation of a spatial area. "
             "Higher resolutions lead to smaller cells, offering a more detailed coverage. Additionaly, "
             "just like Snowflake's <a href='https://docs.snowflake.com/en/sql-reference/data-types-geospatial#label-data-types-geography'>GEOGRAPHY</a>"
             " data type, H3_COVERAGE utilizes spherical geometry for its calculations. "
