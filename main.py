@@ -154,4 +154,6 @@ st.markdown("The world of geospatial data is vast and complex, but with tools li
             "Whether you're a seasoned data analyst, a GIS professional, or just starting out in the realm of geospatial data, "
             "the H3 functions can be a valuable addition to your toolkit. So, we encourage you to try out these functions in Snowflake "
             "and discover the many ways they can enhance your spatial data processing and analysis. Happy mapping!")
-
+st.write("---")
+st.markdown("<a href='https://docs.snowflake.com/en/sql-reference/data-types-geospatial#label-data-types-geospatial-h3'>Snowflake H3 Documentation</a><br>"
+            "<a href='https://github.com/sfc-gh-obielov/streamlit-h3/'>GitHub of this page</a>", unsafe_allow_html=True)
