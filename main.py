@@ -23,7 +23,7 @@ st.markdown("Many companies use H3 grid today. Some of them use it for analytica
 st.markdown("However, even if you don't use spatial joins or don't have machine learning use cases, you likely "
             "store some geographic locations, typically as latitude and longitude pairs. The beauty of the H3 grid"
             " is in its simplicity and effectiveness in extracting value from such data. It offers an accessible way to start "
-            "visualizing your geographic data using its grid system, making it a versatile tool for many applications.")
+            "visualizing your geographic data, making it a versatile tool for many applications.")
 
 st.markdown("To give you a practical example, below is a map showing the distribution of cell towers across the "
             "United States. This map is created using the "
