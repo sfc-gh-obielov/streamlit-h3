@@ -80,7 +80,7 @@ st.markdown("<br>In contrast, the <a href='https://docs.snowflake.com/en/sql-ref
             "And unilike H3_POLYGON_TO_CELLS it operates on planar geometry."
             " It assumes a flat surface for its calculations, which simplifies the processing but can introduce distortions, especially over large areas.", unsafe_allow_html=True)
 st.markdown("Explore the differences between these functions at both global and local scales using the provided widget. "
-            "Compare the results against the initial Light Purple polygon to understand their behavior.", unsafe_allow_html=True)
+            "Compare the results against the initial <span style='color:rgba(217, 102, 255, 1);'>Light Purple</span> polygon to understand their behavior.", unsafe_allow_html=True)
 
 
 col1, col2, col3 = st.columns(3)
