@@ -65,7 +65,7 @@ if style_option == "Snowflake":
 
 color_map = cm.LinearColormap(colors, vmin=quantiles.min(), vmax=quantiles.max(), index=quantiles)
 df['COLOR'] = df['COUNT'].apply(color_map.rgb_bytes_tuple)
-st.pydeck_chart(pdk.Deck(map_style=None,
+st.pydeck_chart(pdk.Deck(map_style='carto', map_style='satellite',
     initial_view_state=pdk.ViewState(
         latitude=38.51405689475766,
         longitude=-94.50284957885742, zoom=3),
@@ -130,7 +130,7 @@ else:
     visible_layers_polyfill = [layer_polyfill]
 
 st.markdown('<b>H3_COVERAGE</b>', unsafe_allow_html=True)
-st.pydeck_chart(pdk.Deck(map_style=None,
+st.pydeck_chart(pdk.Deck(map_style='carto', map_style='satellite',
     initial_view_state=pdk.ViewState(
         latitude=lat,
         longitude=lon, zoom=z),
