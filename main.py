@@ -137,7 +137,7 @@ st.pydeck_chart(pdk.Deck(map_style=None,
     layers=visible_layers_coverage))
 
 st.markdown('<b>H3_POLYGON_TO_CELLS</b>', unsafe_allow_html=True)
-st.pydeck_chart(pdk.Deck(map_style=None,
+st.pydeck_chart(pdk.Deck(map_style='carto', map_style='satellite',
     initial_view_state=pdk.ViewState(
         latitude=lat,
         longitude=lon, zoom=z),
