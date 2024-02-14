@@ -4,6 +4,7 @@ import pydeck as pdk
 import branca.colormap as cm
 from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
+from typing import List
 import json
 from PIL import Image
 image = Image.open('./favicon.png')
