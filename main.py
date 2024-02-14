@@ -267,7 +267,7 @@ st.subheader("Urban Mobility and Food Delivery")
 
 st.markdown("These two industries are likely the most active in using the H3 grid. Sometimes they calculate demand and supply per H3 cell "
             "on a minute-by-minute basis and then predict those values for a future time interval (usually the next 15-30 minutes). "
-            "Additionally, they might use Cell IDs as a feature when train thein ML models. "
+            "Additionally, they might use Cell IDs as a feature when train ML models. "
             "Usually those companies aggregate data using H3 resolutions 7 or 8 with the size of hexagons 0.5-5 sq.km."
             " Check below for the aggregated taxi pickup events of New York Taxi. To which area does this surge in Manhattan correspond?"
             " Is it Times Square?")
