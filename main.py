@@ -265,7 +265,7 @@ st.markdown("However, even if you don't use spatial joins or don't have machine 
 
 st.subheader("Urban Mobility and Food Delivery")
 
-st.markdown("These two industries are likely the most active in using the H3 grid. They calculate demand and supply per H3 cell "
+st.markdown("These two industries are likely the most active in using the H3 grid. Sometimes they calculate demand and supply per H3 cell "
             "on a minute-by-minute basis and then predict those values for a future time interval (usually the next 15-30 minutes). "
             "Additionally, a food delivery company might use Cell IDs as a feature when predicting the probability of success upon "
             "signing new restaurants. Usually those companies aggregate data using H3 resolutions 7 or 8 with the size of hexagons 0.5-5 sq.km."
@@ -345,9 +345,6 @@ st.pydeck_chart(pdk.Deck( map_style=None,
 st.divider()
 st.subheader("Locations of cell towers")
 
-st.markdown("Another industry that likes H3 is Telecommunication. They speed up queries by replacing geospatial lookups "
-            "and joins with similar operations using integer IDs of cells. For example when they calculate the mobile coverage of the road network "
-            "See more details in the ")
 st.write(
   """Another industry that likes H3 is Telecommunication. They speed up queries by replacing geospatial lookups 
   and joins with similar operations using integer IDs of cells. For example when they calculate the mobile coverage of the road network. 
