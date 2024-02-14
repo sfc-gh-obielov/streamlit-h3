@@ -277,7 +277,7 @@ st.markdown("These two industries are likely the most active in using the H3 gri
 def get_df_3(h3_resolut_3: int) -> pd.DataFrame:
     return session.sql(f'select h3_point_to_cell_string(pickup_location, {h3_resolut_3}) as h3, count(*) as count\n'\
                        'from snowpublic.streamlit.h3_ny_taxi_rides\n'\
-                       'where 1 = 1\n'\
+                       'where 2 = 2\n'\
                        'group by 1\n').to_pandas()
 @st.cache_resource
 def get_quantiles_3(df_column: pd.Series, quantiles: List) -> pd.Series:
