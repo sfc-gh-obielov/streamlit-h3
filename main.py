@@ -343,7 +343,7 @@ st.pydeck_chart(pdk.Deck( map_style=None,
 # ------ Visualisation 3 End ---------
 
 st.divider()
-st.subheader("Locations of cell towers")
+st.subheader("Telecommunication")
 
 st.write(
   """Another industry that likes H3 is Telecommunication. They speed up queries by replacing geospatial lookups 
