@@ -267,7 +267,7 @@ st.subheader("Urban Mobility and Food Delivery")
 
 st.markdown("These two industries are likely the most active in using the H3 grid. Sometimes H3 cell is used to calculate demand and supply in near-real time  "
             "and then predict those values for a future time interval. "
-            "Since it's a fixed gread, meaning each Cell ID always points to the same geograpjical area it might be a valuable feature feature for ML models."
+            "Since it's a fixed gread, meaning each Cell ID always points to the same geograpjical area it might be a valuable feature for ML models."
             " The most poular cell resolutions are probably 7 or 8 with the size of hexagons 0.5-5 sq.km."
             " Check below for the aggregated taxi pickup events of New York Taxi. To which area does this surge in Manhattan correspond?"
             " Is it Times Square?")
