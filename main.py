@@ -421,7 +421,7 @@ st.pydeck_chart(pdk.Deck(map_provider='carto', map_style='light',
 # ------ Visualisation 6 End ---------
 st.divider()
 st.markdown("The world of geospatial data is vast and complex, but with tools like H3, it becomes more accessible and manageable. "
-            "If you're a seasoned data analyst, a GIS professional the H3 functions can be a valuable addition to your toolkit."
+            "If you're a seasoned data analyst or a GIS professional, the H3 functions can be a valuable addition to your toolkit."
             " If you just store latitude and longitude as separate columns and want to start capitalizing on your geospatial data, "
             "the H3 functions is probably the easiest to do so. We encourage you to try out these functions "
             "and discover the many ways they can enhance your spatial data processing and analysis. Happy mapping!")
