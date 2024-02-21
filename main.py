@@ -99,8 +99,8 @@ if levels_option == "Three":
         layer_coverage_1_level2, ]
 
 st.pydeck_chart(
-    pdk.Deck(map_provider='carto',
-        map_style=None,
+    pdk.Deck(map_provider='carto', 
+        map_style='light',
         initial_view_state=pdk.ViewState(
             latitude=lat_1, longitude=lon_1, zoom=z_1, height=400
         ),
@@ -226,7 +226,7 @@ else:
 col1, col2 = st.columns(2)
 
 with col1:
-    st.pydeck_chart(pdk.Deck(map_provider='carto',map_style=None,
+    st.pydeck_chart(pdk.Deck(map_provider='carto', map_style='light',
                              initial_view_state=pdk.ViewState(
                                  latitude=lat_2,
                                  longitude=lon_2, 
@@ -237,7 +237,7 @@ with col1:
     st.caption('H3_COVERAGE')
 
 with col2:
-    st.pydeck_chart(pdk.Deck(map_provider='carto',map_style=None,
+    st.pydeck_chart(pdk.Deck(map_provider='carto', map_style='light',
                              initial_view_state=pdk.ViewState(
                                  latitude=lat_2,
                                  longitude=lon_2,
@@ -328,7 +328,7 @@ df_3['COLOR'] = get_color_3(df_3['COUNT'], colors_3, quantiles_3.min(), quantile
 layer_3 = get_layer_3(df_3)
 
 st.image('https://sfquickstarts-obielov.s3.us-west-2.amazonaws.com/streamlit/gradient.png')
-st.pydeck_chart(pdk.Deck(map_provider='carto', map_style=None,
+st.pydeck_chart(pdk.Deck(map_provider='carto',  map_style='light',
     initial_view_state=pdk.ViewState(
         latitude=40.74258515841464,
         longitude=-73.98452997207642, pitch=45, zoom=8),
@@ -406,7 +406,7 @@ df_4['COLOR'] = get_color_4(df_4['COUNT'], colors_4, quantiles_4.min(), quantile
 layer_4 = get_layer_4(df_4)
 
 st.image('https://sfquickstarts-obielov.s3.us-west-2.amazonaws.com/streamlit/gradient.png')
-st.pydeck_chart(pdk.Deck(map_provider='carto',map_style=None,
+st.pydeck_chart(pdk.Deck(map_provider='carto', map_style='light',
     initial_view_state=pdk.ViewState(
         latitude=51.39817252610018,
         longitude=9.541183759445795, zoom=4),
