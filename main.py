@@ -265,10 +265,10 @@ st.markdown("However, even if you don't use spatial joins or don't have machine 
 
 st.subheader("Urban Mobility and Food Delivery")
 
-st.markdown("These two industries are likely the most active in using the H3 grid. Sometimes they calculate demand and supply per H3 cell "
-            "on a minute-by-minute basis and then predict those values for a future time interval (usually the next 15-30 minutes). "
-            "Additionally, they might use Cell IDs as a feature when train ML models. "
-            "Typically they use H3 Cells at resolutions 7 or 8 with the size of hexagons 0.5-5 sq.km."
+st.markdown("These two industries are likely the most active in using the H3 grid. Sometimes H3 cell is used to calculate demand and supply in near-real time  "
+            "and then predict those values for a future time interval. "
+            "Since it's a fixed gread, meaning each Cell ID always points to the same geograpjical area it might be a valuable feature feature for ML models."
+            " The most poular cell resolutions are probably 7 or 8 with the size of hexagons 0.5-5 sq.km."
             " Check below for the aggregated taxi pickup events of New York Taxi. To which area does this surge in Manhattan correspond?"
             " Is it Times Square?")
 
