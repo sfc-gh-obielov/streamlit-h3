@@ -320,14 +320,15 @@ df_3 = get_df_3(h3_resolut_3)
 if style_option_t_3 == "Contrast":
     quantiles_3 = get_quantiles_3(df_3["COUNT"], [0, 0.25, 0.5, 0.75, 1])
     colors_3 = ['gray','blue','green','yellow','orange','red']
+    st.image('./img/gradient_c.png')
 if style_option_t_3 == "Snowflake":
     quantiles_3 = get_quantiles_3(df_3["COUNT"], [0, 0.33, 0.66, 1])
     colors_3 = ['#666666', '#24BFF2', '#126481', '#D966FF']
+    st.image('./img/gradient_sf.jpg')
 
 df_3['COLOR'] = get_color_3(df_3['COUNT'], colors_3, quantiles_3.min(), quantiles_3.max(), quantiles_3)
 layer_3 = get_layer_3(df_3)
 
-st.image('https://sfquickstarts-obielov.s3.us-west-2.amazonaws.com/streamlit/gradient.png')
 st.pydeck_chart(pdk.Deck(map_provider='carto',  map_style='light',
     initial_view_state=pdk.ViewState(
         latitude=40.74258515841464,
@@ -349,7 +350,7 @@ st.write(
   """Another industry that likes H3 is Telecommunication. They speed up queries by replacing geospatial lookups 
   and joins with similar operations using integer IDs of cells. For example when they calculate the mobile coverage of the road network. 
   See example in the [Geospatial Quickstart](https://quickstarts.snowflake.com/guide/geo_analysis_geometry/index.html?index=..%2F..index#6) (Step 7).
-  Widget below visualizes 4G network coverage in Germany. Try different resolutions to see how the size of cells can impact the insights.
+  Widget below visualizes 4G network coverage in the US. Try different resolutions to see how the size of cells can impact the insights.
   """)
 
 
@@ -357,8 +358,9 @@ st.write(
 @st.cache_resource
 def get_df_4(resolution: int) -> pd.DataFrame:
     return session.sql(f'select h3_latlng_to_cell_string(lat, lon, {resolution}) as h3, count(*) as count\n'\
-                       'from snowpublic.streamlit.h3_celltowers\n'\
-                       'group by 1 \n').to_pandas()
+                       'from OPENCELLID.PUBLIC.RAW_CELL_TOWERS\n'\
+                        'where mcc between 310 and 316\n'\
+                            'group by 1').to_pandas()
 
 @st.cache_resource
 def get_quantiles_4(df_column: pd.Series, quantiles: List) -> pd.Series:
@@ -398,18 +400,19 @@ df_4 = get_df_4(h3_resolution_4)
 if style_option_4 == "Contrast":
     quantiles_4 = get_quantiles_4(df_4["COUNT"], [0, 0.25, 0.5, 0.75, 1])
     colors_4 = ['gray','blue','green','yellow','orange','red']
+    st.image('./img/gradient_c.png')
 if style_option_4 == "Snowflake":
     quantiles_4 = get_quantiles_4(df_4["COUNT"], [0, 0.33, 0.66, 1])
     colors_4 = ['#666666', '#24BFF2', '#126481', '#D966FF']
+    st.image('./img/gradient_sf.jpg')
 
 df_4['COLOR'] = get_color_4(df_4['COUNT'], colors_4, quantiles_4.min(), quantiles_4.max(), quantiles_4)
 layer_4 = get_layer_4(df_4)
 
-st.image('https://sfquickstarts-obielov.s3.us-west-2.amazonaws.com/streamlit/gradient.png')
 st.pydeck_chart(pdk.Deck(map_provider='carto', map_style='light',
     initial_view_state=pdk.ViewState(
-        latitude=51.39817252610018,
-        longitude=9.541183759445795, zoom=4),
+        latitude=38.51405689475766,
+        longitude=-96.50284957885742, zoom=3),
                          tooltip={
         'html': '<b>Cell towers:</b> {COUNT}',
         'style': {
@@ -422,7 +425,7 @@ st.pydeck_chart(pdk.Deck(map_provider='carto', map_style='light',
 st.divider()
 st.markdown("The world of geospatial data is vast and complex, but with tools like H3, it becomes more accessible and manageable. "
             "If you're a seasoned data analyst or a GIS professional, the H3 functions can be a valuable addition to your toolkit."
-            " If you just store latitude and longitude as separate columns and want to start capitalizing on your geospatial data, "
+            " If you just store addresses or latitude and longitude as separate columns and want to start capitalizing on your geospatial data, "
             "the H3 functions is probably the easiest to do so. We encourage you to try out them "
             "and discover the many ways they can enhance your spatial data processing and analysis. Happy mapping!")
 
