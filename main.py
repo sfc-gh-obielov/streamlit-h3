@@ -350,7 +350,8 @@ st.write(
   """Another industry that likes H3 is Telecommunication. They speed up queries by replacing geospatial lookups 
   and joins with similar operations using integer IDs of cells. For example when they calculate the mobile coverage of the road network. 
   See example in the [Geospatial Quickstart](https://quickstarts.snowflake.com/guide/geo_analysis_geometry/index.html?index=..%2F..index#6) (Step 7).
-  Widget below visualizes 4G network coverage in the US. Try different resolutions to see how the size of cells can impact the insights.
+  Widget below visualizes 4G network coverage in the US using [OpenCellID dataset](https://app.snowflake.com/marketplace/listing/GZSVZ8ON6J/dataconsulting-pl-opencellid-open-database-of-cell-towers?search=opencellid) 
+  from Snowflake Marketplace. Try different resolutions to see how the size of cells can impact the insights.
   """)
 
 
