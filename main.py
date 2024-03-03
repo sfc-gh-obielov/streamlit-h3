@@ -44,14 +44,14 @@ st.markdown("The lowest resolution is 0, at which the world is divided into 122 
             " You can check different resolutions and play with hierarchy levels using the widget below. Hover on hexagons to see their IDs.")
 
 # ------ Visualisation 1 ---------
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_h3point_df(resolution: float, row_count: int) -> pd.DataFrame:
     return session.sql(
         f"select distinct h3_point_to_cell_string(ST_POINT(UNIFORM( -180 , 180 , random()), UNIFORM( -90 , 90 , random())), {resolution}) as h3 from table(generator(rowCount => {row_count}))"
     ).to_pandas()
 
 
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_coverage_layer(df: pd.DataFrame, line_color: List) -> pdk.Layer:
     return pdk.Layer(
         "H3HexagonLayer",
@@ -151,7 +151,7 @@ with col2:
 with col3:
     h3_res_2 = st.slider( "H3 resolution ", min_value=min_v_2, max_value=max_v_2, value=v_2)
 
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_df_shape_2(poly_scale_2: str) -> pd.DataFrame:
     df = session.sql(
         f"select geog from snowpublic.streamlit.h3_polygon_spherical where scale_of_polygon = '{poly_scale_2}'"
@@ -160,7 +160,7 @@ def get_df_shape_2(poly_scale_2: str) -> pd.DataFrame:
     return df
 
 
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_layer_shape_2(df: pd.DataFrame, line_color: List) -> pdk.Layer:
     return pdk.Layer("PolygonLayer", 
                      df, 
@@ -173,13 +173,13 @@ def get_layer_shape_2(df: pd.DataFrame, line_color: List) -> pdk.Layer:
                      get_line_color=line_color,
                      line_width_min_pixels=1)
 
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_df_coverage_2(h3_res_2: float, poly_scale_2: str) -> pd.DataFrame:
     return session.sql(
         f"select value::string as h3 from snowpublic.streamlit.h3_polygon_planar, TABLE(FLATTEN(h3_coverage_strings(geog, {h3_res_2}))) where scale_of_polygon = '{poly_scale_2}'"
     ).to_pandas()
 
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_layer_coverage_2(df_coverage_2: pd.DataFrame, line_color: List) -> pdk.Layer:
     return pdk.Layer("H3HexagonLayer", 
                      df_coverage_2, 
@@ -190,13 +190,13 @@ def get_layer_coverage_2(df_coverage_2: pd.DataFrame, line_color: List) -> pdk.L
                      get_line_color=line_color, 
                      line_width_min_pixels=1)
 
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_df_polyfill_2(h3_res_2: float, poly_scale_2: str) -> pd.DataFrame:
     return session.sql(
         f"select value::string as h3 from snowpublic.streamlit.h3_polygon_planar, TABLE(FLATTEN(h3_polygon_to_cells_strings(geog, {h3_res_2}))) where scale_of_polygon = '{poly_scale_2}'"
     ).to_pandas()
 
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_layer_polyfill_2(df_polyfill_2: pd.DataFrame, line_color: List) -> pdk.Layer:
     return pdk.Layer("H3HexagonLayer", 
                      df_polyfill_2, 
@@ -273,22 +273,22 @@ st.markdown("These two industries are likely the most active in using the H3 gri
             " Is it Times Square?")
 
 # ------ Visualisation 3 ---------
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_df_3(h3_resolut_3: int) -> pd.DataFrame:
     return session.sql(f'select h3_point_to_cell_string(pickup_location, {h3_resolut_3}) as h3, count(*) as count\n'\
                        'from snowpublic.streamlit.h3_ny_taxi_rides\n'\
                        'where 2 = 2\n'\
                        'group by 1\n').to_pandas()
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_quantiles_3(df_column: pd.Series, quantiles: List) -> pd.Series:
     return df_column.quantile(quantiles)
 
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_color_3(df_column: pd.Series, colors: List, vmin: int, vmax: int, index: pd.Series) -> pd.Series:
     color_map = cm.LinearColormap(colors, vmin=vmin, vmax=vmax, index=index)
     return df_column.apply(color_map.rgb_bytes_tuple)
 
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_layer_3(df: pd.DataFrame) -> pdk.Layer:
     return pdk.Layer("H3HexagonLayer", 
                      df, 
@@ -356,23 +356,23 @@ st.write(
 
 
 # ------ Visualisation 4 ---------
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_df_4(resolution: int) -> pd.DataFrame:
     return session.sql(f'select h3_latlng_to_cell_string(lat, lon, {resolution}) as h3, count(*) as count\n'\
                        'from OPENCELLID.PUBLIC.RAW_CELL_TOWERS\n'\
                         'where mcc between 310 and 316\n'\
                             'group by 1').to_pandas()
 
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_quantiles_4(df_column: pd.Series, quantiles: List) -> pd.Series:
     return df_column.quantile(quantiles)
 
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_color_4(df_column: pd.Series, colors: List, vmin: int, vmax: int, index: pd.Series) -> pd.Series:
     color_map = cm.LinearColormap(colors, vmin=vmin, vmax=vmax, index=index)
     return df_column.apply(color_map.rgb_bytes_tuple)
 
-@cache_resource(ttl="4d")
+@st.cache_resource(ttl="4d")
 def get_layer_4(df: pd.DataFrame) -> pdk.Layer:
     return pdk.Layer("H3HexagonLayer", 
                      df, 
