@@ -175,9 +175,14 @@ def get_layer_shape_2(df: pd.DataFrame, line_color: List) -> pdk.Layer:
 
 @st.cache_resource(ttl="2d")
 def get_df_coverage_2(h3_res_2: float, poly_scale_2: str) -> pd.DataFrame:
-    return session.sql(
-        f"select value::string as h3 from snowpublic.streamlit.h3_polygon_planar, TABLE(FLATTEN(h3_coverage_strings(geog, {h3_res_2}))) where scale_of_polygon = '{poly_scale_2}'"
-    ).to_pandas()
+    if poly_scale_2 == 'Global':
+        return session.sql(
+            f"select value::string as h3 from snowpublic.streamlit.h3_polygon_planar, TABLE(FLATTEN(h3_coverage_strings(to_geography('POLYGON((-118.389015198 34.092757508,-73.933868408 40.864977873,-78.47448349 33.898489435,-118.389015198 34.092757508))'), {h3_res_2})))"
+        ).to_pandas()
+    if poly_scale_2 == 'Local':
+        return session.sql(
+            f"select value::string as h3 from snowpublic.streamlit.h3_polygon_planar, TABLE(FLATTEN(h3_coverage_strings(to_geography('POLYGON((-73.819815516 40.783403069,-74.161494076 40.717999437,-73.835597634 40.727238441,-73.819815516 40.783403069))'), {h3_res_2}))) where scale_of_polygon = '{poly_scale_2}'"
+        ).to_pandas()
 
 @st.cache_resource(ttl="2d")
 def get_layer_coverage_2(df_coverage_2: pd.DataFrame, line_color: List) -> pdk.Layer:
@@ -192,9 +197,14 @@ def get_layer_coverage_2(df_coverage_2: pd.DataFrame, line_color: List) -> pdk.L
 
 @st.cache_resource(ttl="2d")
 def get_df_polyfill_2(h3_res_2: float, poly_scale_2: str) -> pd.DataFrame:
-    return session.sql(
-        f"select value::string as h3 from snowpublic.streamlit.h3_polygon_planar, TABLE(FLATTEN(h3_polygon_to_cells_strings(geog, {h3_res_2}))) where scale_of_polygon = '{poly_scale_2}'"
-    ).to_pandas()
+    if poly_scale_2 == 'Global':
+        return session.sql(
+            f"select value::string as h3 from snowpublic.streamlit.h3_polygon_planar, TABLE(FLATTEN(h3_polygon_to_cells_strings(to_geography('POLYGON((-118.389015198 34.092757508,-73.933868408 40.864977873,-78.47448349 33.898489435,-118.389015198 34.092757508))'), {h3_res_2})))"
+        ).to_pandas()
+    if poly_scale_2 == 'Local':
+        return session.sql(
+            f"select value::string as h3 from snowpublic.streamlit.h3_polygon_planar, TABLE(FLATTEN(h3_polygon_to_cells_strings(to_geography('POLYGON((-73.819815516 40.783403069,-74.161494076 40.717999437,-73.835597634 40.727238441,-73.819815516 40.783403069))'), {h3_res_2}))) where scale_of_polygon = '{poly_scale_2}'"
+        ).to_pandas()
 
 @st.cache_resource(ttl="2d")
 def get_layer_polyfill_2(df_polyfill_2: pd.DataFrame, line_color: List) -> pdk.Layer:
